@@ -141,6 +141,20 @@ void TeleopTwistJoy::Impl::sendCmdVelMsg(const sensor_msgs::Joy::ConstPtr& joy_m
   cmd_vel_msg.angular.y = getVal(joy_msg, axis_angular_map, scale_angular_map, "pitch");
   cmd_vel_msg.angular.x = getVal(joy_msg, axis_angular_map, scale_angular_map, "roll");
 
+  // if(cmd_vel_msg.linear.x>0)
+  //   cmd_vel_msg.linear.x = 0.2;
+  // else if(cmd_vel_msg.linear.x<0)
+  //   cmd_vel_msg.linear.x = -0.2;
+  // else
+  //   cmd_vel_msg.linear.x = 0.0;
+
+  // if(cmd_vel_msg.angular.z>0)
+  //   cmd_vel_msg.angular.z = 1.0;
+  // else if(cmd_vel_msg.angular.z<0)
+  //   cmd_vel_msg.angular.z = -1.0;
+  // else
+  //   cmd_vel_msg.angular.z = 0.0;
+
   std::cout << "x:" << std::setw(6) << std::fixed << std::setprecision(2) << cmd_vel_msg.linear.x
             << "   y:" << std::setw(6) << std::fixed << std::setprecision(2) << cmd_vel_msg.linear.y
             << "   yaw:" << std::setw(6) << std::fixed << std::setprecision(2) << cmd_vel_msg.angular.z << "\r";
